@@ -76,8 +76,9 @@
               `;
 
               // Update the email link with the message
-              emailButton.href = `mailto:?subject=❤️ A Special Message for You ❤️&body=${encodeURIComponent(emailBody)}`;
-  
+            //emailButton.href = `mailto:?subject=❤️ A Special Message for You ❤️&body=${encodeURIComponent(emailBody)}`;
+              emailButton.href = `imessage:?body=${encodeURIComponent(emailBody)}`;
+              
               // Show the modal
               modal.style.display = "block";
           });
