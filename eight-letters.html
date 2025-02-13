@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8 Letters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Anton&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Fredericka+the+Great&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+    <h1>Happy<br>Valentine's Day</h1>
+    <p>Click on a letter to reveal a hidden message!</p>
+
+    <div class="letters">
+        <a class="myBtn" data-sentence="If love is a language, then you are my favorite poem."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="Every day with you feels like a love story I never want to end."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="Loving you is the easiest and most beautiful thing I've ever done."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="You are my heart's favorite place to be—today and always."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="With you, every moment is magic, and every day is Valentine's Day."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="No matter where life takes us, my heart will always find its way back to you."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="You are not just my love; you are my peace, my joy, and my forever."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+        <a class="myBtn" data-sentence="You are my favorite 'yes'—today and for all the days to come."><img src="img/love-letter-pixel.jpg" alt="love-letter-pixel"></a>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="close">
+            <svg class="close" xmlns="http://www.w3.org/2000/svg" version="1.0" width="1300.000000pt" height="1300.000000pt" viewBox="0 0 1300.000000 1300.000000" preserveAspectRatio="xMidYMid meet"><g transform="translate(0.000000,1300.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+              <path d="M2000 10000 l0 -1000 500 0 500 0 0 -500 0 -500 500 0 500 0 0 -500 0 -500 500 0 500 0 0 -500 0 -500 -500 0 -500 0 0 -500 0 -500 -500 0 -500 0 0 -500 0 -500 -500 0 -500 0 0 -1000 0 -1000 1000 0 1000 0 0 500 0 500 500 0 500 0 0 500 0 500 500 0 500 0 0 500 0 500 500 0 500 0 0 -500 0 -500 500 0 500 0 0 -500 0 -500 500 0 500 0 0 -500 0 -500 1000 0 1000 0 0 1000 0 1000 -500 0 -500 0 0 500 0 500 -500 0 -500 0 0 500 0 500 -500 0 -500 0 0 500 0 500 500 0 500 0 0 500 0 500 500 0 500 0 0 500 0 500 500 0 500 0 0 1000 0 1000 -1000 0 -1000 0 0 -500 0 -500 -500 0 -500 0 0 -500 0 -500 -500 0 -500 0 0 -500 0 -500 -500 0 -500 0 0 500 0 500 -500 0 -500 0 0 500 0 500 -500 0 -500 0 0 500 0 500 -1000 0 -1000 0 0 -1000z"/>
+              </g>
+            </svg>
+          </div>
+        <p id="modalText">Default Text.</p>
+        <a id="emailButton" class="email-btn" href="#">Send</a>
+        </div>
+    </div>
+
+    <script>
+      // Get the modal
+      let modal = document.getElementById("myModal");
+  
+      // Get all buttons that should open the modal
+      let buttons = document.querySelectorAll(".myBtn");
+  
+      // Get the close button
+      let span = document.getElementsByClassName("close")[0];
+  
+      // Get the paragraph where the sentence will be displayed
+      let modalText = document.getElementById("modalText");
+
+      // Get the email button
+      let emailButton = document.getElementById("emailButton");
+  
+      // Loop through all buttons and add a click event listener
+      buttons.forEach(function(btn) {
+          btn.addEventListener("click", function(event) {
+              event.preventDefault(); // Prevent default link behavior
+              
+              // Get the sentence from the clicked <a> tag's data attribute
+              let sentence = btn.getAttribute("data-sentence");
+              
+              // Update the modal text with the specific sentence
+              modalText.innerText = sentence;
+
+              // Construct email body with "From" info
+              let emailBody = `
+              Happy Valentine's Day from 8 Letters!
+
+              "${sentence}"
+
+              ------
+              Sent with ❤️
+              From: {Enter your name}
+              `;
+
+              // Update the email link with the message
+              emailButton.href = `mailto:?subject=❤️ A Special Message for You ❤️&body=${encodeURIComponent(emailBody)}`;
+  
+              // Show the modal
+              modal.style.display = "block";
+          });
+      });
+  
+      // Close modal when the 'X' is clicked
+      span.onclick = function() {
+          modal.style.display = "none";
+      }
+  
+      // Close modal when clicking outside of it
+      window.onclick = function(event) {
+          if (event.target == modal) {
+              modal.style.display = "none";
+          }
+      }
+  </script>
+</body>
+</html>

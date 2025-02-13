@@ -1,0 +1,48 @@
+@import url('modal.css');
+@import url('scrollbar.css');
+
+body {
+    background-color: #f3d4d4;
+    font-family: "Pixelify Sans", serif;
+    text-align: center;
+    margin: 0;
+}
+
+h1, p {
+    color: #ff5b5b;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+img:hover {
+    transform: scale(1.05);
+    box-shadow: 3px 3px 8px #4a4a4a;
+}
+
+.letters {
+    margin: 1rem;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+@media (min-width: 768px) {
+    .letters {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+}
+
+
+@media (min-width: 1024px) {
+    .letters {
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+}

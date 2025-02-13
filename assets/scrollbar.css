@@ -1,0 +1,23 @@
+/* Scrollbar width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px; /* for horizontal scrollbar */
+  }
+  
+  /* Scrollbar Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+    border-radius: 10px;
+  }
+  
+  /* Scrollbar Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ff5b5b; 
+    border-radius: 10px;
+  }
+  
+  /* On Hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #c94242; 
+  }
+  
