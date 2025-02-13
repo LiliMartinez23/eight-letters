@@ -33,7 +33,9 @@
             </svg>
           </div>
         <p id="modalText">Default Text.</p>
-        <a id="emailButton" class="email-btn" href="#">Send</a>
+        <a id="emailButton" class="email-btn" href="#">Send Email</a>
+        <a id="imessageButton" class="email-btn" href="#">Send iMessage</a>
+        <a id="smsButton" class="email-btn" href="#">Send SMS</a>
         </div>
     </div>
 
@@ -52,6 +54,8 @@
 
       // Get the email button
       let emailButton = document.getElementById("emailButton");
+      let imessageButton = document.getElementById("imessageButton");
+      let smsButton = document.getElementById("smsButton");
   
       // Loop through all buttons and add a click event listener
       buttons.forEach(function(btn) {
@@ -65,19 +69,17 @@
               modalText.innerText = sentence;
 
               // Construct email body with "From" info
-              let emailBody = `
-              Happy Valentine's Day from 8 Letters!
+              // Update the links for Email, iMessage, and SMS
+                let messageBody = encodeURIComponent("❤️ A Special Message for You ❤️");
 
-              "${sentence}"
+                // Email
+                emailButton.href = `mailto:?subject=❤️ A Special Message for You ❤️&body=${messageBody}`;
 
-              ------
-              Sent with ❤️
-              From: {Enter your name}
-              `;
+                // iMessage
+                imessageButton.href = `imessage:?body=${messageBody}`;
 
-              // Update the email link with the message
-            //emailButton.href = `mailto:?subject=❤️ A Special Message for You ❤️&body=${encodeURIComponent(emailBody)}`;
-              emailButton.href = `imessage:?body=${encodeURIComponent(emailBody)}`;
+                // SMS
+                smsButton.href = `sms:&body=${messageBody}`;
               
               // Show the modal
               modal.style.display = "block";
